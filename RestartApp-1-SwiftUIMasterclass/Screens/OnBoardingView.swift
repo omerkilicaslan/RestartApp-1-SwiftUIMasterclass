@@ -165,8 +165,10 @@ struct OnBoardingView: View {
                                 
                                 withAnimation(Animation.easeOut(duration: 0.4)) {
                                     if buttonOffset > buttonWidth / 1.5 {
+                                        playSound(sound: "chimeup", type: "mp3")
                                         buttonOffset = buttonWidth - 80
                                         isOnboardingViewActive = false
+                                        
                                     }
                                     else{
                                      buttonOffset = 0
@@ -190,6 +192,7 @@ struct OnBoardingView: View {
         .onAppear {
             isAnimating = true
         }
+        .preferredColorScheme(.dark)
     }
 }
 
